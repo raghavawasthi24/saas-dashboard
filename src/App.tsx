@@ -1,12 +1,28 @@
-import './App.css'
+import Sidebar from "./components/shared/sidebar";
+import Dashboard from "./pages/dashboard";
 
-function App() {
-
+export default function App() {
   return (
-    <div>
-      <p className='bg-red-500 p-4'>Hello</p>
+    <div className="w-screen h-screen flex overflow-hidden select-none">
+      <Sidebar />
+      <div className="flex-1">
+        <Dashboard />
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+{
+  /* <Button
+variant="outline"
+size="icon"
+onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+>
+{theme === "light" ? (
+  <Moon className="h-[1.2rem] w-[1.2rem]" />
+) : (
+  <Sun className="h-[1.2rem] w-[1.2rem]" />
+)}
+<span className="sr-only">Toggle theme</span>
+</Button> */
+}
