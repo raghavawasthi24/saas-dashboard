@@ -32,7 +32,7 @@ export default function Pages() {
   ];
   return (
     <div className="">
-      <p className="mb-2">Pages</p>
+      <p className="mb-2 text-muted-foreground">Pages</p>
 
       <div className="flex flex-col">
         {content.map((item) => {

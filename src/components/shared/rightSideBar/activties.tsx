@@ -36,7 +36,7 @@ export default function Activities() {
               <img src={activity.icon} alt="" className="w-6 h-6" />
               <div className="flex flex-col">
                 <p>{activity.text}</p>
-                <p className="text-sm text-[#1C1C1C66]">{activity.time}</p>
+                <p className="text-sm text-muted-foreground">{activity.time}</p>
               </div>
             </div>
           );

@@ -1,32 +1,26 @@
+import { useState } from "react";
 import LeftBar from "./components/shared/rightSideBar";
 import Sidebar from "./components/shared/sidebar";
 import TopNav from "./components/shared/topNav";
 import Dashboard from "./pages/dashboard";
 
 export default function App() {
+  const [isSidebarOpen, setIsSideBarOpen] = useState(true);
+  const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(true);
+
   return (
     <div className="w-screen h-screen flex overflow-hidden select-none">
-      <Sidebar />
-      <div className="flex flex-1 flex-col">
-        <TopNav />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <div className="flex flex-1 flex-col overflow-auto">
+        <TopNav
+          setIsSideBarOpen={setIsSideBarOpen}
+          isSidebarOpen={isSidebarOpen}
+          isLeftSidebarOpen={isLeftSidebarOpen}
+          setIsLeftSidebarOpen={setIsLeftSidebarOpen}
+        />
         <Dashboard />
       </div>
-      <LeftBar />
+      <LeftBar isSidebarOpen={isLeftSidebarOpen} />
     </div>
   );
-}
-
-{
-  /* <Button
-variant="outline"
-size="icon"
-onClick={() => setTheme(theme === "light" ? "dark" : "light")}
->
-{theme === "light" ? (
-  <Moon className="h-[1.2rem] w-[1.2rem]" />
-) : (
-  <Sun className="h-[1.2rem] w-[1.2rem]" />
-)}
-<span className="sr-only">Toggle theme</span>
-</Button> */
 }

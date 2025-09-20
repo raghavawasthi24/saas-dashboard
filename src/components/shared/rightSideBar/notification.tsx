@@ -31,7 +31,7 @@ export default function Notifications() {
               <img src={notification.icon} alt="" className="w-6 h-6" />
               <div className="flex flex-col">
                 <p>{notification.text}</p>
-                <p className="text-sm text-[#1C1C1C66]">{notification.time}</p>
+                <p className="text-sm text-muted-foreground">{notification.time}</p>
               </div>
             </div>
           );

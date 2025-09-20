@@ -25,7 +25,7 @@ export default function DashboardMenu() {
   ];
   return (
     <div className="">
-      <p className="mb-2 text-[#1C1C1C66]">Dashboards</p>
+      <p className="mb-2 text-muted-foreground">Dashboards</p>
 
       <div className="flex flex-col">
         {content.map((item) => {
