@@ -93,6 +93,7 @@ export default function OrderTable() {
                   }
                   onChange={handleSelectAll}
                   aria-label="Select all orders on this page"
+                  className="accent-black"
                 />
               </th>
               {columns.map((col, key) => (
@@ -113,7 +114,7 @@ export default function OrderTable() {
                     <input
                       type="checkbox"
                       className={cn(
-                        "opacity-0 group-hover:opacity-100 transition-opacity",
+                        "accent-black opacity-0 group-hover:opacity-100 transition-opacity",
                         selected.includes(order.id) && "opacity-100"
                       )}
                       checked={selected.includes(order.id)}
