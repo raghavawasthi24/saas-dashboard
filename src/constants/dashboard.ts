@@ -41,12 +41,12 @@ export const revenueLocations = [
   ];
 
   export const projectionData = [
-    { projection: 22, month: "Jan", actual: 300 },
-    { projection: 15, month: "Feb", actual: 420 },
-    { projection: 17, month: "Mar", actual: 120 },
-    { projection: 8, month: "Apr", actual: 550 },
-    { projection: 5, month: "May", actual: 350 },
-    { projection: 16, month: "Jun", actual: 400 },
+    { projection: 222, month: "Jan", actual: 300 },
+    { projection: 150, month: "Feb", actual: 420 },
+    { projection: 70, month: "Mar", actual: 120 },
+    { projection: 240, month: "Apr", actual: 550 },
+    { projection: 250, month: "May", actual: 350 },
+    { projection: 200, month: "Jun", actual: 400 },
   ]
 
   export const revenueData = [
