@@ -1,6 +1,7 @@
 import Numbers from "./numbers";
 import { Projection } from "./projection";
 import { Revenue } from "./revenue";
+import TopProducts from "./topProducts";
 
 export default function Dashboard() {
   return (
@@ -8,10 +9,13 @@ export default function Dashboard() {
       <p>eCommerce</p>
       <div className="flex gap-6">
         <Numbers />
-        <Projection/>
+        <Projection />
       </div>
       <div className="flex gap-6">
-        <Revenue/>
+        <Revenue />
+      </div>
+      <div>
+        <TopProducts />
       </div>
     </div>
   );
