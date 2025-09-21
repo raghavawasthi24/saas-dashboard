@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Notifications from "./notification";
 import Activities from "./activties";
 import Contact from "./contact";
@@ -8,23 +8,17 @@ type SidebarProps = {
   setIsSideBarOpen: (open: boolean) => void;
 };
 
-export default function NotificationBar({
-  isSidebarOpen,
-  setIsSideBarOpen,
-}: SidebarProps) {
+const NotificationBar = ({ isSidebarOpen, setIsSideBarOpen }: SidebarProps) => {
   const sidebarRef = useRef<HTMLDivElement | null>(null);
   const [isResponsive, setIsResponsive] = useState(false);
 
-  // Helper to check window width and update isResponsive accordingly
+  // check window width and update isResponsive accordingly
   function handleResize() {
     setIsResponsive(window.innerWidth <= 1300);
   }
 
   useEffect(() => {
-    // Initial check on mount
     handleResize();
-
-    // Listen to window resize to toggle responsive mode dynamically
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -32,9 +26,13 @@ export default function NotificationBar({
     };
   }, []);
 
+   /**
+   * early return if width > 1300px and sidebar is already closed
+   * if clicked outside sidebar , close the sidebar
+   */
   useEffect(() => {
     if (!isResponsive || !isSidebarOpen) {
-      return; // Only apply outside click logic if responsive sidebar is open
+      return;
     }
 
     function handleClickOutside(event: MouseEvent) {
@@ -68,7 +66,7 @@ export default function NotificationBar({
         "bg-background",
         isSidebarOpen
           ? isResponsive
-            ? "w-72 fixed top-0 right-0 z-50" // fixed sidebar on small screens
+            ? "w-72 fixed top-0 right-0 z-50"
             : "w-1/5 block"
           : "hidden",
       ].join(" ")}
@@ -80,4 +78,6 @@ export default function NotificationBar({
       <Contact />
     </aside>
   );
-}
+};
+
+export default React.memo(NotificationBar);

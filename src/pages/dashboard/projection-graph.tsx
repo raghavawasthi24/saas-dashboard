@@ -1,4 +1,4 @@
-import { Bar, BarChart, XAxis, YAxis, Tooltip, Legend } from "recharts"
+import { Bar, BarChart, XAxis, YAxis } from "recharts"
 
 import {
   Card,
@@ -9,20 +9,13 @@ import {
 import {
   ChartContainer,
 } from "../../components/ui/chart"
+import { projectionData } from "../../constants/dashboard"
 
 export const description = "A stacked bar chart with a legend"
 export const iframeHeight = "600px"
 export const containerClassName =
   "[&>div]:w-full [&>div]:max-w-md flex items-center justify-center min-h-svh"
 
-const chartData = [
-  { projection: 22, month: "Jan", actual: 300 },
-  { projection: 15, month: "Feb", actual: 420 },
-  { projection: 17, month: "Mar", actual: 120 },
-  { projection: 8, month: "Apr", actual: 550 },
-  { projection: 5, month: "May", actual: 350 },
-  { projection: 16, month: "Jun", actual: 400 },
-]
 
 const chartConfig = {
   projection: {
@@ -43,7 +36,7 @@ export function Projection() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="w-full max-h-42">
-          <BarChart data={chartData}>
+          <BarChart data={projectionData}>
             <XAxis
               dataKey="month"
               tickLine={false}

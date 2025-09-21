@@ -1,13 +1,8 @@
-"use client";
-
-import { TrendingUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../../components/ui/card";
@@ -16,18 +11,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../../components/ui/chart";
-import { Separator } from "../../components/ui/separator";
-
-export const description = "A multiple line chart";
-
-const chartData = [
-  { month: "January", currWeek: 186, prevWeek: 80 },
-  { month: "February", currWeek: 305, prevWeek: 200 },
-  { month: "March", currWeek: 237, prevWeek: 120 },
-  { month: "April", currWeek: 73, prevWeek: 190 },
-  { month: "May", currWeek: 209, prevWeek: 130 },
-  { month: "June", currWeek: 214, prevWeek: 140 },
-];
+import { revenueData } from "../../constants/dashboard";
 
 const chartConfig = {
   currWeek: {
@@ -65,7 +49,7 @@ export function Revenue() {
         <ChartContainer config={chartConfig} className="w-full h-64">
           <LineChart
             accessibilityLayer
-            data={chartData}
+            data={revenueData}
             margin={{
               left: 12,
               right: 12,
@@ -80,11 +64,7 @@ export function Revenue() {
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-             <YAxis
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-            />
+            <YAxis tickLine={false} axisLine={false} tickMargin={8} />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Line
               dataKey="currWeek"

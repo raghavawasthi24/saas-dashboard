@@ -1,29 +1,9 @@
+import { overviewData } from "../../constants/dashboard";
+
 export default function Numbers() {
-  const data = [
-    {
-      category: "Customers",
-      value: "3,781",
-      changePercentage: 11.01,
-    },
-    {
-      category: "Orders",
-      value: "1,219",
-      changePercentage: -0.03,
-    },
-    {
-      category: "Revenue",
-      value: "$695",
-      changePercentage: 15.03,
-    },
-    {
-      category: "Growth",
-      value: "30.1%",
-      changePercentage: 6.08,
-    },
-  ];
   return (
     <div className="w-full md:w-1/2 grid sm:grid-cols-2 gap-6">
-      {data.map((item) => {
+      {overviewData.map((item) => {
         return (
           <div
             className={`${

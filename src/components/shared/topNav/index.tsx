@@ -2,6 +2,7 @@ import { PanelRight, Star, History, Bell, PanelLeft } from "lucide-react";
 import PathHighlight from "./path-overview";
 import SaSInput from "../input";
 import Theme from "./theme";
+import React from "react";
 
 /**
  * Props for TopNav component.
@@ -17,12 +18,12 @@ type Props = {
  * TopNav component - displays primary navigation bar.
  * Controls sidebar toggles and renders navigation icons, search input, theme switcher, and breadcrumb path.
  */
-export default function TopNav({
+const TopNav = ({
   isSidebarOpen,
   setIsSideBarOpen,
   isLeftSidebarOpen,
   setIsLeftSidebarOpen,
-}: Props) {
+}: Props) => {
   return (
     <header className="w-full flex justify-between items-center gap-2 p-5 border-b">
       <div className="flex items-center gap-4">
@@ -40,7 +41,10 @@ export default function TopNav({
           }}
         />
         {/* Favorite/star icon */}
-        <Star className="hidden sm:block w-5 h-5 flex-shrink-0" aria-hidden="true" />
+        <Star
+          className="hidden sm:block w-5 h-5 flex-shrink-0"
+          aria-hidden="true"
+        />
         {/* Breadcrumb navigation */}
         <PathHighlight />
       </div>
@@ -72,4 +76,6 @@ export default function TopNav({
       </div>
     </header>
   );
-}
+};
+
+export default React.memo(TopNav);

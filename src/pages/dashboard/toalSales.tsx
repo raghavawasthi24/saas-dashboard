@@ -1,10 +1,8 @@
-import { TrendingUp } from "lucide-react";
 import { Pie, PieChart } from "recharts";
 
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -14,15 +12,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../../components/ui/chart";
+import { salesData } from "../../constants/dashboard";
 
-export const description = "A donut chart";
-
-const chartData = [
-  { mode: "sponsored", visitors: 154.02, fill: "#95A4FC" },
-  { mode: "mail", visitors: 48.96, fill: "#B1E3FF" },
-  { mode: "affiliate", visitors: 135.18, fill: "#BAEDBD" },
-  { mode: "direct", visitors: 300.6, fill: "var(--brand)" },
-];
 
 const chartConfig = {
   direct: {
@@ -60,7 +51,7 @@ export function TotalSales() {
               content={<ChartTooltipContent hideLabel />}
             />
             <Pie
-              data={chartData}
+              data={salesData}
               dataKey="visitors"
               nameKey="mode"
               innerRadius={60}
@@ -69,7 +60,7 @@ export function TotalSales() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="w-full flex-col gap-2 text-sm">
-        {chartData.map((entity) => {
+        {salesData.map((entity) => {
           return (
             <div className="w-full flex justify-between items-center">
               <div className="flex gap-2 items-center">

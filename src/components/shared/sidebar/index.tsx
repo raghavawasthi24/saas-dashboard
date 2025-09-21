@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Profile from "./profile";
 import DashboardMenus from "./dashboard-menus";
 import FavouriteMenus from "./favorities-menus";
@@ -6,13 +6,13 @@ import PageMenu from "./page-menus";
 
 type SidebarProps = {
   isSidebarOpen: boolean;
-  setIsSideBarOpen: (open: boolean) => void; // parent controls state
+  setIsSideBarOpen: (open: boolean) => void;
 };
 
-export default function Sidebar({
+const Sidebar = ({
   isSidebarOpen,
   setIsSideBarOpen,
-}: SidebarProps) {
+}: SidebarProps) => {
   const sidebarRef = useRef<HTMLDivElement | null>(null);
   const [isResponsive, setIsResponsive] = useState(false);
 
@@ -22,10 +22,7 @@ export default function Sidebar({
   }
 
   useEffect(() => {
-    // Initial check on mount
     handleResize();
-
-    // Listen to window resize to toggle responsive mode dynamically
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -33,13 +30,20 @@ export default function Sidebar({
     };
   }, []);
 
+  /**
+   * early return if width > 1300px and sidebar is already closed
+   * if clicked outside sidebar , close the sidebar
+   */
   useEffect(() => {
     if (!isResponsive || !isSidebarOpen) {
-      return; // Only apply outside click logic if responsive sidebar is open
+      return;
     }
 
     function handleClickOutside(event: MouseEvent) {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
         setIsSideBarOpen(false);
       }
     }
@@ -51,7 +55,6 @@ export default function Sidebar({
     };
   }, [isResponsive, isSidebarOpen, setIsSideBarOpen]);
 
-  // Compose dynamic className for sidebar based on state
   const className = [
     "p-6",
     "h-full",
@@ -64,17 +67,13 @@ export default function Sidebar({
     "bg-background",
     isSidebarOpen
       ? isResponsive
-        ? "w-64 fixed top-0 left-0 z-50" // fixed sidebar on small screens
+        ? "w-64 fixed top-0 left-0 z-50"
         : "w-1/6 block"
       : "hidden",
   ].join(" ");
 
   return (
-    <aside
-      className={className}
-      ref={sidebarRef}
-      aria-hidden={!isSidebarOpen}
-    >
+    <aside className={className} ref={sidebarRef} aria-hidden={!isSidebarOpen}>
       <Profile />
       <FavouriteMenus />
       <DashboardMenus />
@@ -82,3 +81,5 @@ export default function Sidebar({
     </aside>
   );
 }
+
+export default React.memo(Sidebar);
