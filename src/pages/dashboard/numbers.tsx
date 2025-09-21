@@ -28,10 +28,10 @@ export default function Numbers() {
           <div
             className={`${
               item.category === "Customers"
-                ? "bg-[#E3F5FF]"
+                ? "bg-[#E3F5FF] text-black"
                 : item.category === "Growth"
-                ? "bg-[#E5ECF6]"
-                : "bg-[#F7F9FB]"
+                ? "bg-[#E5ECF6] text-black"
+                : "bg-secondary"
             } w-full p-6 flex flex-col justify-center gap-2 rounded-xl`}
           >
             <p className="font-semibold text-[clamp(0.8rem,1.0vw,1.5rem)]">

@@ -21,13 +21,13 @@ const chartData = [
   { mode: "sponsored", visitors: 154.02, fill: "#95A4FC" },
   { mode: "mail", visitors: 48.96, fill: "#B1E3FF" },
   { mode: "affiliate", visitors: 135.18, fill: "#BAEDBD" },
-  { mode: "direct", visitors: 300.6, fill: "#1C1C1C" },
+  { mode: "direct", visitors: 300.6, fill: "var(--brand)" },
 ];
 
 const chartConfig = {
   direct: {
     label: "Direct",
-    color: "#1C1C1C",
+    color: "var(--brand)",
   },
   affiliate: {
     label: "Affiliate",
@@ -45,7 +45,7 @@ const chartConfig = {
 
 export function TotalSales() {
   return (
-    <Card className="flex-1 flex flex-col gap-2">
+    <Card className="flex-1 flex flex-col gap-2 border-0 shadow-none bg-secondary">
       <CardHeader className="items-center pb-0">
         <CardTitle>Total Sales</CardTitle>
       </CardHeader>
@@ -77,7 +77,9 @@ export function TotalSales() {
                   className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: entity.fill }}
                 ></div>
-                <p>{entity.mode}</p>
+                <p>
+                  {entity.mode.charAt(0).toUpperCase() + entity.mode.slice(1)}
+                </p>
               </div>
               <p>${entity.visitors}</p>
             </div>

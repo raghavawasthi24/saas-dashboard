@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <div className="w-screen h-screen flex overflow-hidden select-none">
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <Sidebar isSidebarOpen={isSidebarOpen} setIsSideBarOpen={setIsSideBarOpen}/>
       <div className="flex flex-1 flex-col overflow-auto">
         <TopNav
           setIsSideBarOpen={setIsSideBarOpen}
@@ -26,7 +26,7 @@ export default function App() {
           <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
-      <NotificationBar isSidebarOpen={isLeftSidebarOpen} />
+      <NotificationBar isSidebarOpen={isLeftSidebarOpen} setIsSideBarOpen={setIsLeftSidebarOpen} />
     </div>
   );
 }

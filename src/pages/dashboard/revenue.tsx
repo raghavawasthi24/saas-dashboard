@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 
 import {
   Card,
@@ -21,28 +21,28 @@ import { Separator } from "../../components/ui/separator";
 export const description = "A multiple line chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", currWeek: 186, prevWeek: 80 },
+  { month: "February", currWeek: 305, prevWeek: 200 },
+  { month: "March", currWeek: 237, prevWeek: 120 },
+  { month: "April", currWeek: 73, prevWeek: 190 },
+  { month: "May", currWeek: 209, prevWeek: 130 },
+  { month: "June", currWeek: 214, prevWeek: 140 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--chart-1)",
+  currWeek: {
+    label: "Current Week",
+    color: "var(--brand)",
   },
-  mobile: {
-    label: "Mobile",
-    color: "var(--chart-2)",
+  prevWeek: {
+    label: "Previous Week",
+    color: "var(--cyan)",
   },
 };
 
 export function Revenue() {
   return (
-    <Card className="w-2/3 h-fit border-none shadow-none bg-[#F7F9FB]">
+    <Card className="w-2/3 h-fit border-none shadow-none bg-secondary">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <span>Revenue</span>
@@ -80,18 +80,23 @@ export function Revenue() {
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
+             <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+            />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Line
-              dataKey="desktop"
+              dataKey="currWeek"
               type="monotone"
-              stroke="var(--color-desktop)"
+              stroke="var(--color-currWeek)"
               strokeWidth={2}
               dot={false}
             />
             <Line
-              dataKey="mobile"
+              dataKey="prevWeek"
               type="monotone"
-              stroke="var(--color-mobile)"
+              stroke="var(--color-prevWeek)"
               strokeWidth={2}
               dot={false}
             />

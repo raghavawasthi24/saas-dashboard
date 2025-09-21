@@ -37,7 +37,7 @@ const chartConfig = {
 
 export function Projection() {
   return (
-    <Card className="w-1/2 h-fit border-none shadow-none bg-[#F7F9FB]">
+    <Card className="w-1/2 h-fit border-none shadow-none bg-secondary">
       <CardHeader>
         <CardTitle>Projections vs Actuals</CardTitle>
       </CardHeader>

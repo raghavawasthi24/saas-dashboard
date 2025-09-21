@@ -1,3 +1,4 @@
+import RevenueLocation from "./location";
 import Numbers from "./numbers";
 import { Projection } from "./projection";
 import { Revenue } from "./revenue";
@@ -14,6 +15,7 @@ export default function Dashboard() {
       </div>
       <div className="flex gap-6">
         <Revenue />
+        <RevenueLocation/>
       </div>
       <div className="flex gap-6">
         <TopProducts />

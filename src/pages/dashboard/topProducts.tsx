@@ -43,7 +43,7 @@ export default function TopProducts() {
   };
 
   return (
-    <Card className="w-2/3 gap-2 border-none shadow-none bg-[#F7F9FB]">
+    <Card className="w-2/3 gap-2 border-none shadow-none bg-secondary">
       <CardHeader className="py-2">
         <CardTitle>Top Selling Products</CardTitle>
       </CardHeader>
@@ -62,7 +62,7 @@ export default function TopProducts() {
             {data.rows.map((row, i) => (
               <tr key={i}>
                 {data.head.map((col) => (
-                  <td key={col} className="p-2">
+                  <td key={col} className="p-2 py-4">
                     {row[col as keyof typeof row]}
                   </td>
                 ))}
