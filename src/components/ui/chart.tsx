@@ -353,3 +353,23 @@ export {
   ChartLegendContent,
   ChartStyle,
 }
+
+
+export const CustomSlice = (props) => {
+  const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
+
+  return (
+    <RechartsPrimitive.Sector
+      cx={cx}
+      cy={cy}
+      innerRadius={innerRadius}
+      outerRadius={outerRadius}
+      startAngle={startAngle}
+      endAngle={endAngle}
+      fill={fill}
+      cornerRadius={10} // round only the end
+      // add this to control one-sided roundness
+      cornerIsExternal={true} 
+    />
+  );
+};
