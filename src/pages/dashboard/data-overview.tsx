@@ -22,7 +22,7 @@ export default function Numbers() {
     },
   ];
   return (
-    <div className="w-1/2 grid grid-cols-2 gap-6">
+    <div className="w-full md:w-1/2 grid sm:grid-cols-2 gap-6">
       {data.map((item) => {
         return (
           <div

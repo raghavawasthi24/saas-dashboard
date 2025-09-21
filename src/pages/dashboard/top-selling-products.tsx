@@ -43,12 +43,12 @@ export default function TopProducts() {
   };
 
   return (
-    <Card className="w-2/3 gap-2 border-none shadow-none bg-secondary">
+    <Card className="w-full md:w-2/3 gap-2 border-none shadow-none bg-secondary">
       <CardHeader className="py-2">
         <CardTitle>Top Selling Products</CardTitle>
       </CardHeader>
-      <CardContent>
-        <table className="w-full border-collapse">
+      <CardContent className="overflow-x-auto">
+        <table className="w-full border-collapse overflow-x-auto">
           <thead className="text-muted-foreground">
             <tr>
               {data.head.map((col) => (

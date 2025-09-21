@@ -40,7 +40,7 @@ export default function TopNav({
           }}
         />
         {/* Favorite/star icon */}
-        <Star className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
+        <Star className="hidden sm:block w-5 h-5 flex-shrink-0" aria-hidden="true" />
         {/* Breadcrumb navigation */}
         <PathHighlight />
       </div>

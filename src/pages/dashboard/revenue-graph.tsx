@@ -42,14 +42,14 @@ const chartConfig = {
 
 export function Revenue() {
   return (
-    <Card className="w-2/3 h-fit border-none shadow-none bg-secondary">
+    <Card className="w-full md:w-2/3 h-fit border-none shadow-none bg-secondary">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center gap-2">
           <span>Revenue</span>
 
-          <hr className="rotate-90 w-6 text-black" />
+          <hr className="hidden sm:blockrotate-90 w-6 text-black" />
 
-          <ul className="flex gap-8 list-disc font-light text-sm ml-4">
+          <ul className="flex flex-col sm:flex-row sm:gap-8 list-disc font-light text-sm ml-4">
             <li>
               <span>Current Week</span>
               <span className="ml-2 font-semibold">$58,211</span>{" "}

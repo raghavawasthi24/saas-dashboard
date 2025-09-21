@@ -56,7 +56,7 @@ export default function NotificationBar({
   return (
     <aside
       className={[
-        "w-1/6",
+        "w-1/5",
         "p-6",
         "h-full",
         "overflow-auto",
@@ -68,8 +68,8 @@ export default function NotificationBar({
         "bg-background",
         isSidebarOpen
           ? isResponsive
-            ? "w-64 fixed top-0 right-0 z-50" // fixed sidebar on small screens
-            : "w-1/6 block"
+            ? "w-72 fixed top-0 right-0 z-50" // fixed sidebar on small screens
+            : "w-1/5 block"
           : "hidden",
       ].join(" ")}
       ref={sidebarRef}

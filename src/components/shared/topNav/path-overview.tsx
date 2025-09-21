@@ -25,11 +25,11 @@ export default function PathHighlight() {
     firstSegment.charAt(0).toUpperCase() + firstSegment.slice(1) || "Default";
 
   return (
-    <Breadcrumb>
+    <Breadcrumb className="hidden sm:block">
       <BreadcrumbList>
         {/* Root breadcrumb */}
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Dashboards</BreadcrumbLink>
+          <BreadcrumbLink href="/default">Dashboards</BreadcrumbLink>
         </BreadcrumbItem>
 
         <BreadcrumbSeparator>
