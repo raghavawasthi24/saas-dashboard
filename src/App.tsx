@@ -3,7 +3,8 @@ import LeftBar from "./components/shared/rightSideBar";
 import Sidebar from "./components/shared/sidebar";
 import TopNav from "./components/shared/topNav";
 import Dashboard from "./pages/dashboard";
-import OrderTable from "./pages/orders";
+import Orders from "./pages/orders";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
   const [isSidebarOpen, setIsSideBarOpen] = useState(true);
@@ -19,8 +20,11 @@ export default function App() {
           isLeftSidebarOpen={isLeftSidebarOpen}
           setIsLeftSidebarOpen={setIsLeftSidebarOpen}
         />
-        {/* <Dashboard /> */}
-        <OrderTable />
+
+        <Routes>
+          <Route path="/*" element={<Dashboard />} />
+          <Route path="/orders" element={<Orders />} />
+        </Routes>
       </div>
       <LeftBar isSidebarOpen={isLeftSidebarOpen} />
     </div>

@@ -1,15 +1,42 @@
 import Profile from "./profile";
-import DashboardMenu from "./dashboards-menu";
-import Favourites from "./favorites";
-import Pages from "./pages";
+import DashboardMenus from "./dashboard-menus";
+import FavouriteMenus from "./favorities-menus";
+import PageMenu from "./page-menus";
 
-export default function Sidebar({ isSidebarOpen }: { isSidebarOpen: boolean }) {
+/**
+ * Props for Sidebar component.
+ * @prop isSidebarOpen - Controls sidebar visibility.
+ */
+type SidebarProps = {
+  isSidebarOpen: boolean;
+};
+
+/**
+ * Sidebar navigation component.
+ * Shows user profile, favorites, dashboard links, and page menus.
+ * Appears or is hidden based on `isSidebarOpen` prop.
+ */
+export default function Sidebar({ isSidebarOpen }: SidebarProps) {
   return (
-    <div className={`w-1/6 p-6 h-full overflow-auto flex flex-col gap-6 border font-light ${isSidebarOpen ? "block": "hidden"}`}>
+    <aside
+      className={[
+        "w-1/6",
+        "p-6",
+        "h-full",
+        "overflow-auto",
+        "flex",
+        "flex-col",
+        "gap-6",
+        "border",
+        "font-light",
+        isSidebarOpen ? "block" : "hidden",
+      ].join(" ")}
+      aria-hidden={!isSidebarOpen}
+    >
       <Profile />
-      <Favourites />
-      <DashboardMenu />
-      <Pages />
-    </div>
+      <FavouriteMenus />
+      <DashboardMenus />
+      <PageMenu />
+    </aside>
   );
 }

@@ -18,6 +18,7 @@ import {
 } from "../../../components/ui/breadcrumb";
 import { Input } from "../../ui/input";
 import { useTheme } from "next-themes";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   isSidebarOpen: boolean;
@@ -33,6 +34,14 @@ export default function TopNav({
   setIsLeftSidebarOpen,
 }: Props) {
   const { theme, setTheme } = useTheme();
+
+  const route = useLocation();
+  const path = route.pathname;
+  const pathname = path.split("/")[1];
+  const formattedPathName = pathname.charAt(0).toUpperCase() + pathname.slice(1);
+
+  console.log(pathname);
+
   return (
     <div className="w-full flex justify-between items-center gap-2 p-5 border-b">
       {/* Left side */}
@@ -51,7 +60,9 @@ export default function TopNav({
               <SlashIcon className="-rotate-25" />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Default</BreadcrumbLink>
+              <BreadcrumbLink href={path}>
+                {formattedPathName ? formattedPathName : "Default"}
+              </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -61,7 +72,7 @@ export default function TopNav({
       <div className="flex items-center gap-4">
         <div className="relative w-40">
           <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
-          <Input type="text" placeholder="Search" className="h-8 pl-7" />
+          <Input type="text" placeholder="Search" className="h-7 pl-7" />
         </div>
         <div onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
           {theme === "light" ? (
